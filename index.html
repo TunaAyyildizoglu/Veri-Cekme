@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="datatables.css" rel="stylesheet"/>
+    <style>
+        tfoot input {
+        width: 100%;
+        padding: 3px;
+        box-sizing: border-box;
+    }
+    </style>
+</head>
+<body>
+
+    <table id="example" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>Country</th>
+                <th>CountryCode</th>
+                <th>Province</th>
+                <th>City</th>
+                <th>CityCode</th>
+                <th>Lat</th>
+                <th>Lon</th>
+                <th>Confirmed</th>
+                <th>Deaths</th>
+                <th>Recovered</th>
+                <th>Active</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+    </table>
+
+    <script src="jquery-3.6.0.min.js"></script>
+    <script src="datatables.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#example').DataTable( {
+                "ajax": {
+                    "url": "https://api.covid19api.com/country/turkey?from=2021-03-01T00:00:00Z&to=2021-06-01T00:00:00Z",
+                    "dataSrc": ""
+                },
+                "columns": [
+                    { "data": "Country" },
+                    { "data": "CountryCode" },
+                    { "data": "Province" },
+                    { "data": "City" },
+                    { "data": "CityCode" },
+                    { "data": "Lat" },
+                    { "data": "Lon" },
+                    { "data": "Confirmed" },
+                    { "data": "Deaths" },
+                    { "data": "Recovered" },
+                    { "data": "Active" },
+                    { "data": "Date" },
+                ]
+            } );
+        } );
+    </script>
+</body>
+</html>
